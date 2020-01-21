@@ -2,4 +2,9 @@ const sum = (a, b) => {
   return a + b;
 };
 
-module.exports = sum;
+const mul = (a, b) => {
+  return a * b;
+};
+
+exports.sum = sum;
+exports.mul = mul;
