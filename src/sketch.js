@@ -1,7 +1,10 @@
-export const sum = (a, b) => {
+const sum = (a, b) => {
   return a + b;
 };
 
-export const mul = (a, b) => {
+const mul = (a, b) => {
   return a * b;
 };
+
+exports.sum = sum;
+exports.mul = mul;
