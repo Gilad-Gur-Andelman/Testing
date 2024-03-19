@@ -1,0 +1,22 @@
+name: Manual Testing
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  create-status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.payload.pull_request.head.sha,
+              state: 'pending',
+              context: 'Manual Testing',
+              description: 'Manual testing is in progress'
+            })
